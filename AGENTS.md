@@ -1,3 +1,7 @@
+# OozoAI development
+
+Read [.oozo-instructions.md](.oozo-instructions.md) first, then [development](docs/development.md) and [integration](docs/integration.md). Preserve existing versions and working components. Use existing shadcn/Radix components before adding libraries. Execute validation before claiming completion.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## This is NOT the Next.js you know

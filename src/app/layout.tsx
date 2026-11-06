@@ -1,17 +1,30 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { site } from "@/config/site";
 import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
-  title: "Oozo AI Template",
-  description: "Next.js + shadcn/ui configured for AI",
+  title: { default: site.title, template: "%s | OozoAI" },
+  description: site.description,
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <a href="#main" className="skip-link">
+            Skip to content
+          </a>
           {children}
         </ThemeProvider>
       </body>

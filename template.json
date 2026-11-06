@@ -1,0 +1,64 @@
+{
+  "id": "oozo-nextjs-shadcn",
+  "version": "1.0.0",
+  "name": "OozoAI Next.js + shadcn",
+  "framework": {
+    "name": "nextjs",
+    "version": "16.4.5",
+    "router": "app",
+    "sourceDirectory": "src"
+  },
+  "packageManager": {
+    "name": "pnpm",
+    "version": "10.34.4"
+  },
+  "node": {
+    "version": "24.22.2"
+  },
+  "commands": {
+    "install": "corepack pnpm@10.34.4 install --frozen-lockfile",
+    "development": "corepack pnpm@10.34.4 dev",
+    "build": "corepack pnpm@10.34.4 build",
+    "start": "corepack pnpm@10.34.4 start",
+    "validate": "corepack pnpm@10.34.4 validate"
+  },
+  "defaultPort": 3000,
+  "portConfiguration": {
+    "environmentVariable": "PORT",
+    "cliFlag": "--port"
+  },
+  "healthCheck": {
+    "path": "/api/health",
+    "method": "GET",
+    "expectedStatus": 200,
+    "expectedBody": {
+      "status": "ok",
+      "templateId": "oozo-nextjs-shadcn"
+    }
+  },
+  "capabilities": [
+    "react-server-components",
+    "typescript-strict",
+    "tailwind-css-4",
+    "shadcn-on-demand",
+    "light-dark-system-themes",
+    "responsive-navigation",
+    "local-validated-forms",
+    "accessible-dialog",
+    "filterable-sortable-table",
+    "accessible-svg-chart",
+    "dashboard-composition",
+    "local-status-notifications",
+    "authentication-ui-only",
+    "loading-error-empty-states",
+    "http-health",
+    "development-hot-reload",
+    "configurable-port",
+    "node-server-runtime"
+  ],
+  "initialization": {
+    "requiredEnvironmentVariables": [],
+    "installHooks": false,
+    "externalRuntimeServices": []
+  }
+}

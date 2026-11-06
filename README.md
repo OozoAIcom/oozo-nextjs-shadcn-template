@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OozoAI Next.js + shadcn template
 
-## Getting Started
+An independent application foundation for OozoAI: Next.js 16.4.5, React 19.3.0, TypeScript, Tailwind CSS 4, shadcn/ui, Radix, Lucide and next-themes. Existing version declarations and primitives are preserved.
 
-First, run the development server:
+## Start
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Use Node.js **24.22.2** and pnpm **10.34.4**, without changing your global tools:
+
+```sh
+corepack pnpm@10.34.4 install --frozen-lockfile
+corepack pnpm@10.34.4 dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Port defaults to 3000. Pass `--port 3200` or set `PORT` for another port. No environment file, service account, database or credentials are required.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+corepack pnpm@10.34.4 build
+corepack pnpm@10.34.4 start --port 3200
+corepack pnpm@10.34.4 exec playwright install --with-deps chromium
+corepack pnpm@10.34.4 validate
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Validation includes locked installation, TypeScript, ESLint, production build, component/browser/accessibility tests, managed startup and HTTP smoke checks. CI runs the same validation on Windows and Ubuntu. Browser installation is an explicit prerequisite, not an install hook.
 
-## Learn More
+## Included examples
 
-To learn more about Next.js, take a look at the following resources:
+Responsive navigation, light/dark/system themes, a validated local project editor in a dialog, filterable/sortable component table, accessible native chart, dashboard composition, local status notifications, authentication handoff UI, loading and empty states. Authentication UI does not create accounts or sessions; local edits do not persist or transmit data.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Use existing components first. Install only missing official components:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```sh
+corepack pnpm@10.34.4 exec shadcn info
+corepack pnpm@10.34.4 exec shadcn add accordion
+```
 
-## Deploy on Vercel
+The original `radix-nova` style is retained. No competing UI library or older template's component files are used.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Installation](docs/installation.md)
+- [Development and examples](docs/development.md)
+- [AI development guide](.oozo-instructions.md)
+- [Integration contract](docs/integration.md) and [manifest](template.json)
+- [Security and network inventory](docs/security.md)
+- [Change log](CHANGELOG.md)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The original npm lockfile is retained as historical input; pnpm-lock.yaml is canonical for this workflow. Do not regenerate both locks with competing package managers. The package's existing version is preserved; the template release is versioned separately in the manifest.
+
+No deployment, analytics, remote fonts, tracking or provider credentials are included. Dependencies retain their respective upstream licenses/notices in their installed packages; no third-party ownership is claimed.
